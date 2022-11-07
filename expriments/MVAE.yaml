@@ -1,0 +1,51 @@
+WORKERS: 4
+
+DATASET:
+  # NAME: ActivityNet
+  # NO_VAL: True
+  # NORMALIZE: False
+
+MODEL:
+  NAME: MVAE
+  # CHECKPOINT: /media/data/ys/work/tsg/TSG/results/Charades/SimpleNet_22422/checkpoints/SimpleNet_42.t7
+  emb_size: [128, 256, 64, 32, 512, 128, 128]
+  dim: 512
+  drop_rate: 0.3
+  ENCODER:
+    num_layers: 3
+    dim: 512
+    num_heads: 8
+    drop_rate: 0.3
+    mlp_in_dim: 512
+    mlp_out_dim: 512
+  VQVAE:
+    codebook_len: 1024
+    e_dim: 512
+    beta: 1
+  DECODER:
+    num_layers: 3
+    dim: 512
+    num_heads: 8
+    drop_rate: 0.3
+    mlp_in_dim: 512
+    mlp_out_dim: 512
+
+TRAIN:
+  BATCH_SIZE: 16
+  LR: 0.00005
+  WEIGHT_DECAY: 0.00 # to be changed
+  MAX_EPOCH: 50
+  MILE_STONE: [80]
+  GAMMA: 0.1
+  CONTINUE: False
+
+LOSS:
+#  LOCALIZATION: 1.0
+#  MATCH: 10.0
+#  DISTANCE: 0.0
+#  KL: 100.0
+#  EARLY: 1.0
+
+TEST:
+  BATCH_SIZE: 32
+  EVAL_TRAIN: True
