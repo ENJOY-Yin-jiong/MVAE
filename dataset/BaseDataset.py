@@ -62,17 +62,17 @@ class BaseDataset(data.Dataset):
 
 
 
-if __name__ == '__main__':
-    dataset = BaseDataset()
-
-    data = DataLoader(dataset,
-                      batch_size=16,
-                      shuffle=True,
-                      num_workers=4,
-                      pin_memory=False)
-
-    for batch in data:
-        print('x', batch['x'].shape)
-        print('y', batch['y'].shape)
-        print('mask', batch['mask'].shape)
-        # print('group', batch['group'].shape)
+# if __name__ == '__main__':
+#     dataset = BaseDataset()
+#
+#     data = DataLoader(dataset,
+#                       batch_size=16,
+#                       shuffle=True,
+#                       num_workers=4,
+#                       pin_memory=False)
+#
+#     for batch in data:
+#         print('x', batch['x'].shape)
+#         print('y', batch['y'].shape)
+#         print('mask', batch['mask'].shape)
+#         # print('group', batch['group'].shape)
